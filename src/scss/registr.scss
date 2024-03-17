@@ -1,0 +1,43 @@
+.registration {
+    display: flex;
+    height: 173px;
+    column-gap: 2rem;
+    margin: 2rem 0 6rem;
+    border: #000000 1px solid;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #ae67fa 1.84%, #f49867 102.67%);
+  }
+  
+  .registration .registration__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 46px;
+  }
+  
+  .registration .registration__left .right__cta {
+    color: #000000;
+    font-size: 14px;
+  }
+  
+  .registration .registration__left .registration__left__content {
+    color: #000000;
+    width: 66%;
+  }
+  
+  .registration .registration__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .registration .registration__right a button {
+    background-color: #000000;
+    padding: 1rem 4rem;
+    border-radius: 25px;
+    font-size: 18px;
+  }
+  
+  .registration .registration__right a button:hover {
+    background-color: #ae67fa
+  }
