@@ -16,84 +16,25 @@ export const infoGpt3 = {
     Все права защищены`,
 };
 
-export const footerLinks = {
-    header: "Ссылки",
-    linkElements: [
-        {
-            href: "#",
-            title: "Овероны"
-        },
-        {
-            href: "#",
-            title: "Соц. сети"
-        },
-        {
-            href: "#",
-            title: "Счетчик"
-        },
-        {
-            href: "#",
-            title: "Контакты"
-        }
-    ]
-};
+export const footerLinks = [
+    { href: "#", text: "Овероны" },
+    { href: "#", text: "Соц. сети" },
+    { href: "#", text: "Счетчики" },
+    { href: "#", text: "Контакты" },
+];
 
-export const companyLinks = {
-    header: "Компания",
-    linkElements: [
-        {
-            href: "#",
-            title: "Условия использования"
-        },
-        {
-            href: "#",
-            title: "Перс. данные"
-        },
-        {
-            href: "#",
-            title: "Контакты"
-        }
-    ]
-};
+export const companyLinks = [
+    { href: "#", text: "Условия использования" },
+    { href: "#", text: "Перс. данные" },
+    { href: "#", text: "Конаткты" },
+];
 
-export const contactLinks = {
-    header: "Контакты",
-    adress: "ул. Профессора Поздеева, 13, к.Г, Пермь",
-    phoneNumber: "+7 (342) 2-198-520",
-    email: "info@pstu.ru"
-};
+export const contactLinks = [
+    { href: "#", text: "ул. Профессора Поздеева, 13, к.Г, Пермь" },
+    { href: "#", text: "+7 (342) 2-198-520" },
+    { href: "#", text: "info@pstu.ru" },
+];
 
-export const contactLinks2 = {
-    header: "Контакты",
-    adress: "ул. Профессора Поздеева, 13, к.Г, Пермь",
-    phoneNumber: "+7 (342) 2-198-520",
-    email: "info@pstu.ru"
-};
-
-export const contactLinks3 = {
-    header: "Контакты",
-    adress: "ул. Профессора Поздеева, 13, к.Г, Пермь",
-    phoneNumber: "+7 (342) 2-198-520",
-    email: "info@pstu.ru"
-};
-
-export const companyLinks2 = {
-    header: "Компания",
-    linkElements: [
-        {
-            href: "#",
-            title: "Условия использования"
-        },
-        {
-            href: "#",
-            title: "Перс. данные"
-        },
-        {
-            href: "#",
-            title: "Контакты"
-        }
-    ]
-};
 export const theEnd = {
     text: '© 2023 GPT-3. Все права защищены.',
 };
@@ -104,7 +45,6 @@ export const footerData = {
     footerLinks,
     companyLinks,
     contactLinks,
-    companyLinks2
 };
 
 export default footerData;
