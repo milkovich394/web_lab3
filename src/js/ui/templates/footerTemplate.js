@@ -22,15 +22,15 @@ export const createInfo = ({ img: { src, alt }, text }) => {
     return template;
 };
 
-export const linksFooter = ({ href, text }) => {
-    return `<a class="footer__link" href="${href}">${text}</a>`;
+export const linksFooter = ({ href, title }) => {
+    return `<a class="footer__link" href="${href}">${title}</a>`;
 };
 
-export const createLinks = (links) => {
-    const linksHTML = links.map((item) => linksFooter(item)).join(" ");
+export const createLinks = ({ header, linkElements }) => {
+    const linksHTML = linkElements.map((item) => `<div class="footer_link">${linksFooter(item)}</div>`).join(""); 
     const template = `
-    <div class="footer_links">
-        <p class="bottom_links">Ссылки</p>
+    <div class="footer_column">
+        <p class="bottom_links">${header}</p>
         <div class="footer_info__links">
             ${linksHTML}
         </div>
@@ -38,11 +38,12 @@ export const createLinks = (links) => {
     return template;
 };
 
-export const createCompany = (company) => {
-    const companyHTML = company.map((item) => linksFooter(item)).join(" ");
+
+export const createCompany = ({ header, linkElements }) => {
+    const companyHTML = linkElements.map((item) => `<div class="footer_link">${linksFooter(item)}</div>`).join(""); 
     const template = `
-    <div class="footer__company_info">
-        <p class="bottom_links">Компания</p>
+    <div class="footer_column">
+        <p class="bottom_links">${header}</p>
         <div class="footer_company__links">
             ${companyHTML}
         </div>
@@ -50,33 +51,42 @@ export const createCompany = (company) => {
     return template;
 };
 
-export const createContact = (contact) => {
-    const contactHTML = contact.map((item) => linksFooter(item)).join(" ");
-    const template = `
-    <div class="footer__contact_info">
-        <p class="bottom_links">Контакты</p>
-        <div class="footer__contact_content">
-            ${contactHTML}
+
+export const createContact = ({ header, adress, phoneNumber, email }) => {
+    const contactHTML = `
+        <p class="bottom_links">${header}</p>
+        <div class="footer_info__links">
+            <p class="footer__link">${adress}</p>
+            <p class="footer__link">${phoneNumber}</p>
+            <p class="footer__link">${email}</p>
         </div>
+    `;
+    const template = `
+    <div class="footer_column">
+        ${contactHTML}
     </div>`;
     return template;
 };
 
-export const createfooterTemplate = ({ headerOfFooter, infoGpt3, footerLinks, companyLinks, contactLinks }) => {
+
+export const createfooterTemplate = ({ headerOfFooter, infoGpt3, ...columns }) => {
     const headerTemplate = createHeaderFooterTemplate(headerOfFooter);
     const info = createInfo(infoGpt3);
-    const linksTemplate = createLinks(footerLinks);
-    const companyTemplate = createCompany(companyLinks);
-    const contactTemplate = createContact(contactLinks);
+
+    const columnsHTML = Object.values(columns).map(column => {
+        if (column.linkElements) {
+            return createLinks(column);
+        } else if (column.adress && column.phoneNumber && column.email) {
+            return createContact(column);
+        }
+    }).join("");
 
     const resultTemplate = `
         ${headerTemplate}
         <div class="footer_btm">
             ${info}
             <div class="footer_btm__right">
-                ${linksTemplate}
-                ${companyTemplate}
-                ${contactTemplate}
+                ${columnsHTML}
             </div>
         </div>
     `;
